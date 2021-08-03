@@ -38,24 +38,48 @@ listItems(basket);
 //  - reset the `basket` to an empty array
 
 function empty( array ){
-  array.length = 0;
+  //console.log(`Basket is ${array}`);
+  array.length = 0; {
+  //console.log(`Basket is now ${array}`);
+  }
 }
 
 empty(basket);
 
 console.log(basket);
 
-/*
+//console.log(`Basket is ${basket}`);
+//console.log('Adding apples (expect true)', addItem('apples'));
+//console.log(`Basket is now ${basket}`);
+//```
 
-Why doesn't this method work?
+
+
+//Alternate solution, why doesn't it keep array empty??
 
 addItem('banana');
 
 function empty2( array ){
-  array = [];
+  //console.log(`Basket is now ${array}`);
+  array = [];{
+  //console.log(`Basket is now ${array}`);
+}
 }
 
 empty2(basket);
 console.log(basket);
 
-*/
+
+
+//Stretch Goals
+//2. Create a function called isFull(). It should:r
+  //- return `false` if the basket contains *less* than max number of items
+  //- return `true` otherwise (equal or more than maxItems)
+
+function isFull( items ){
+  return (items.length < 5);
+}
+
+let secondBasket = ['grapes', 'mangos', 'plums', 'water'];
+
+console.log(isFull(secondBasket));
