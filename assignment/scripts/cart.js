@@ -76,34 +76,44 @@ console.log(basket);
   //- return `false` if the basket contains *less* than max number of items
   //- return `true` otherwise (equal or more than maxItems)
 
-function isFull( items ){
-  if (items.length >= 5){
-    return true;
-  }
-  return false;
-}
-
-let secondBasket = ['grapes', 'mangos', 'plums', 'water', 'carrot'];
-
-console.log(isFull(secondBasket));
 
 ///3. Update the required `addItem` function to:
   //- Use the `isFull` function to prevent more than `maxItems` from being added to the basket.
   //- If an item was added to the array, return `true`
   //- If there was no room and the item could not be added return `false`
 
-function addItem2( item ){
-  if (isFull(basket) === false){
-    return basket.push(item);
+
+function isFull( array ){
+  if (array.length >= 5){
+    return true;
   }
   return false;
+}
+
+function addItem2( array, item ){
+  if (isFull(array) === false){
+    console.log(`The array before trying to add item called ${item} contained ${array}.`);
+    return array.push(item);
   }
+  console.log(`The basket was full so could not add ${item}.`);
+  return false;
+}
 
+let secondBasket = ['grapes', 'mangos', 'plums', 'water', 'carrot'];
+console.log(isFull(secondBasket));
 
-addItem2('cheese');
-addItem2('crackers');
-addItem2("jam");
-addItem2("figs");
-addItem2("bread");
-addItem2("oranges");
+addItem2(basket, 'cheese');
+addItem2(basket, 'crackers');
+addItem2(basket, "figs");
+addItem2(basket, "bread");
+addItem2(basket, "apricots");
+addItem2(secondBasket, "jam");
+//addItem2("oranges");
 console.log(basket);
+console.log(secondBasket);
+
+//4. Create a function called `removeItem`. It should:r
+  //- Take an input parameter for a string `item`
+  //- Use [Array.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to find the index of the first matching item in the basket.
+  //- Use [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to remove the first matching item from the basket.
+  //- Return the item removed or `null` if the item was not found
