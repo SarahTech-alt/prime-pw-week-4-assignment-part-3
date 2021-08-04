@@ -38,9 +38,9 @@ listItems(basket);
 //  - reset the `basket` to an empty array
 
 function empty( array ){
-  //console.log(`Basket is ${array}`);
+  console.log(`Basket is ${array}`);
   array.length = 0; {
-  //console.log(`Basket is now ${array}`);
+  console.log(`Basket is now ${array}`);
   }
 }
 
@@ -60,9 +60,9 @@ console.log(basket);
 addItem('banana');
 
 function empty2( array ){
-  //console.log(`Basket is now ${array}`);
-  array = [];{
-  //console.log(`Basket is now ${array}`);
+  console.log(`Basket is now ${array}`);
+  array = []; {
+  console.log(`Basket is now ${array}`);
 }
 }
 
@@ -77,9 +77,33 @@ console.log(basket);
   //- return `true` otherwise (equal or more than maxItems)
 
 function isFull( items ){
-  return (items.length < 5);
+  if (items.length >= 5){
+    return true;
+  }
+  return false;
 }
 
-let secondBasket = ['grapes', 'mangos', 'plums', 'water'];
+let secondBasket = ['grapes', 'mangos', 'plums', 'water', 'carrot'];
 
 console.log(isFull(secondBasket));
+
+///3. Update the required `addItem` function to:
+  //- Use the `isFull` function to prevent more than `maxItems` from being added to the basket.
+  //- If an item was added to the array, return `true`
+  //- If there was no room and the item could not be added return `false`
+
+function addItem2( item ){
+  if (isFull(basket) === false){
+    return basket.push(item);
+  }
+  return false;
+  }
+
+
+addItem2('cheese');
+addItem2('crackers');
+addItem2("jam");
+addItem2("figs");
+addItem2("bread");
+addItem2("oranges");
+console.log(basket);
