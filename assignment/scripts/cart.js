@@ -57,7 +57,7 @@ console.log(basket);
 
 //Alternate solution, why doesn't it keep array empty??
 
-addItem('banana');
+addItem('bananas');
 
 function empty2( array ){
   console.log(`Basket is now ${array}`);
@@ -112,8 +112,24 @@ addItem2(secondBasket, "jam");
 console.log(basket);
 console.log(secondBasket);
 
-//4. Create a function called `removeItem`. It should:r
+//4. Create a function called `removeItem`. It should:
   //- Take an input parameter for a string `item`
   //- Use [Array.indexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf) to find the index of the first matching item in the basket.
   //- Use [Array.splice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice) to remove the first matching item from the basket.
   //- Return the item removed or `null` if the item was not found
+
+function removeItem( array, checkItem ){
+  let position = array.indexOf(checkItem);
+  console.log(`Checking ${array} for presence of ${checkItem}.`);
+  if (position >= 0){
+    array.splice(position,1);
+    console.log(`Found ${checkItem} and removed it. The basket now contains ${array}.`);
+    return;
+  }
+  console.log(`Did not find the item ${checkItem} in the basket. It still contains ${array}.`);
+  return;
+}
+
+removeItem(basket, 'cheese');
+removeItem(basket, 'figs');
+removeItem(basket, 'puppies');
