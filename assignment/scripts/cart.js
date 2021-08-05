@@ -13,6 +13,7 @@ const maxItems = 5;
 
 function addItem( item ){
   basket.push(item);
+  console.log(`The item ${item} was added to the basket.`);
   return true;
 }
 
@@ -38,9 +39,9 @@ listItems(basket);
 //  - reset the `basket` to an empty array
 
 function empty( array ){
-  console.log(`Basket is ${array}`);
+  console.log(`Basket has ${array}.`);
   array.length = 0; {
-  console.log(`Basket is now ${array}`);
+  console.log(`Basket now has ${array}.`);
   }
 }
 
@@ -59,16 +60,19 @@ console.log(basket);
 
 addItem('bananas');
 
+/*
 function empty2( array ){
   console.log(`Basket is now ${array}`);
   array = []; {
   console.log(`Basket is now ${array}`);
+  return array;
 }
 }
 
 empty2(basket);
 console.log(basket);
 
+*/
 
 
 //Stretch Goals
@@ -76,24 +80,23 @@ console.log(basket);
   //- return `false` if the basket contains *less* than max number of items
   //- return `true` otherwise (equal or more than maxItems)
 
+  function isFull( array ){
+    if (array.length >= 5){
+      return true;
+    }
+    return false;
+  }
 
 ///3. Update the required `addItem` function to:
   //- Use the `isFull` function to prevent more than `maxItems` from being added to the basket.
   //- If an item was added to the array, return `true`
   //- If there was no room and the item could not be added return `false`
 
-
-function isFull( array ){
-  if (array.length >= 5){
-    return true;
-  }
-  return false;
-}
-
 function addItem2( array, item ){
   if (isFull(array) === false){
     console.log(`The array before trying to add item called ${item} contained ${array}.`);
-    return array.push(item);
+    array.push(item);
+    return true;
   }
   console.log(`The basket was full so could not add ${item}.`);
   return false;
